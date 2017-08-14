@@ -1,5 +1,9 @@
-My name is Yaroslav. I have a masters degree in applied mathematics from Lviv Polytechnic University. I am a software engineer with 9 years’ experience in embedded software and applications development. It includes 4 years in C++ development and 5 years in C development. 
-I worked in several companies and in general my responsibilities were the following: develop, maintain and enhance software applications; discuss with a customer and analyse product features, write technical documents; code review; cooperate and work with offshore teams, developers, testers, managers.
+My name is Yaroslav. I have a masters degree in applied mathematics from Lviv Polytechnic University. 
+I am a software engineer with 9 years’ experience in embedded software and applications development. 
+It includes 4 years in C++ development and 5 years in C development. 
+I worked in several companies and in general my responsibilities were the following: develop, maintain and 
+enhance software applications; discuss with a customer and analyse product features, write technical documents; 
+code review; cooperate and work with offshore teams, developers, testers, managers.
 ============================
 My pluses are:
 I really like my profession.
@@ -13,17 +17,23 @@ I like reading fiction fantasy books, playing ping pong. Also I like backpacking
 What part of my work experience would you like me to talk about?
 ============================
 Gameloft company designs and develops mobile games. 
-I have been working in Gameloft for last 3 months. A common practice in the Gameloft Lviv office is to give a test task for a new comer. In my case it was to create a simple game engine from scratch. The main requirement was to use only provided OpenGL ES library (native API) without using any other libraries (without GLM). User provided configuration files with resources like a models, textures, shaders, and objects like water, fire, sky, different types of lights and post effects (black and white, blur, bloom, depth of field)
-	The engine made a scene from all that configuration.
-	I have a good mathematics background and it was not hard to me to make matrices calculation for that task.
-	========================================================
-	The test task contained the following requirements: user provides 3 configuration files,
-	The first one is  resources,
-	The second one is scene objects (position, rotation, scaling, Model ID, Texture ID, Shader ID)
-	The third is efects 
-	Models (Vertices of an object), Textures (a color of an object), Shaders (at least 1 Vertex Shader to calculate vertices of an object and 1 Fragment Shader to calculate color of an object)
-	Directions (vectors) should be normalized to have length equal 1. We need to normalize directions. We do not need to normalize positions.
-	Lighting component consists from  Ambient (природнє світло), Diffuse, Specular (дзеркало) lights
+I have been working in Gameloft for last 3 months. A common practice in the Gameloft Lviv office 
+is to give a test task for a new comer. In my case it was to create a simple game engine from scratch. 
+The main requirement was to use only provided OpenGL ES library (native API) without using any other 
+libraries (without GLM). User provided configuration files with resources like a models, textures, 
+shaders, and objects like water, fire, sky, different types of lights and post effects (black and 
+white, blur, bloom, depth of field)
+The engine made a scene from all that configuration.
+
+I have a good mathematics background and it was not hard to me to make matrices calculation for that task.
+========================================================
+The test task contained the following requirements: user provides 3 configuration files,
+The first one is  resources,
+The second one is scene objects (position, rotation, scaling, Model ID, Texture ID, Shader ID)
+The third is efects 
+Models (Vertices of an object), Textures (a color of an object), Shaders (at least 1 Vertex Shader to calculate vertices of an object and 1 Fragment Shader to calculate color of an object)
+Directions (vectors) should be normalized to have length equal 1. We need to normalize directions. We do not need to normalize positions.
+Lighting component consists from  Ambient (природнє світло), Diffuse, Specular (дзеркало) lights
 
 
 	in C++, with GLM : Model (World) matrix
