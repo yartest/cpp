@@ -1,0 +1,236 @@
+https://git-scm.com/book/ru/v2 ++++
+https://habrahabr.ru/post/268951/ ++++
+
+merge and rebase difference 
+rebase дає на 1 менше коміт
+rebase дає кучу проблем якщо хтось наслідувався від твого коміта і з тим проацює
+
+http://gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html cherry-pick
+http://think-like-a-git.net/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html cherry-pick
+https://habrahabr.ru/post/313890/ - how git works
+https://habrahabr.ru/post/280358/ - git, huge repo, productivity issue 
+
+--------- Adding ssh key to github ----
+cd ~/.ssh/
+ssh-keygen -t rsa -C "povezlo@gmail.com"
+/root/.ssh/test_rsa
+eval `ssh-agent -s`
+ssh-add test_rsa
+cat ~/.ssh/test_rsa.pub
+https://github.com/settings/keys 
+--------------------------------------
+git config --global user.name "yartest"
+git config --global user.email povezlo@gmail.com
+git config --global core.editor vim
+--------------------------------------
+
+
+
+https://github.com/yartest/test/network 
+git clone --recurse-submodules https://github.com/floodlight/loxigen
+
+git fetch origin - get data from server without mergin
+git branch --all - list of all branches
+git branch -vv
+
+git init
+git status
+git add *
+git commit
+git remote add origin https://github.com/yartest/test - привязка імені до лінки
+git push origin master - куди і який бранч
+
+git remote
+git remote -v
+git fetch name_of_branch
+git pull - це git fetch i git merge
+
+git log --oneline --decorate - show labels
+git log --oneline --decorate --graph --all
+
+git checkout file name - remove all local modifications.
+
+git branch -u origin/third_branch
+
+git rebase
+git rebase --abort 
+
+
+
+
+gerrit
+
+
+
+git cherry-pick <commit-hash>
+In root project directory
+cat .gitreview
+[gerrit]
+defaultremote=origin
+defaultrebase=0
+
+
+list of tags:
+git tag -l
+version number:
+git describe
+
+github update fork
+
+ssh -l berta:rr16or csig-sdnsw-cc.jf.intel.com
+OnsBld123
+vim /etc/udev/rules.d/70-persistent-net.rules
+KERNELS=="0000:02:00.0", SUBSYSTEMS=="net", DRIVERS==”igb”, NAME=”p1p1”
+ifconfig p1p1 up
+
+vim ~/.ssh/config
+Host *devtools.intel.com
+	HostkeyAlgorithms ssh-dss
+
+
+	git checkout ww2016.08.sdnd
+	git branch -u ww2016.08.sdnd
+
+	rpm -qa | grep fm10kd
+	git reset --hard
+	git reset --hard f35513d0
+			
+
+	yum install vimdiff
+	git rebase origin/ww2015.43.sdnd.01
+	git mergetool --tool-help
+	git mergetool vimdiff
+	git mergetool
+	git rebase --continue
+	--------------------------------------
+	git config --global user.name "YaroslavX Medzyn"
+	git config --global user.email yaroslavx.medzyn@intel.com
+	git config --global core.editor vim
+	--------------------------------------
+	switch to another branch
+	git checkout ww2015.43.sdnd.01
+	git branch -u ww2015.43.sdnd.01
+	git pull 
+	--------------------------------------
+
+	update sources:
+	git checkout dev/acl_sprint4
+	git pull
+
+	remove own changes from file:
+	git checkout agent/acl_nl_cmds.h
+
+	get sources from another branch:
+	git checkout dev/acl_netlink
+	git rebase dev/acl_sprint4
+
+	create sub branch:
+	git checkout dev/acl_sprint4
+	git checkout -b dev/acl_netlink
+	git push -u origin dev/acl_netlink:dev/acl_netlink
+
+	review/medzyn_yaroslavx/acl_show_cmd
+	73700
+
+	ww2015.43.sdnd.01
+	____________________________________________________________________
+	git stash pop
+	git stash
+	git mergetool vimdiff
+	git merge --continue
+	git merge
+	____________________________________________________________________
+	git stash pop
+	git checkout branch_name
+	git stash
+	git status
+	git reset --soft xxxxxxxxxxxxxxxxxxxxxx
+	git log
+	git show 
+	git branch
+	git review -d 73700
+	git review -l
+
+	Zero is valid condition for rules.
+
+	Changed acl tool and unit tests to support zero conditions.
+	____________________________________________________________________
+	git config --global --list
+	git cherry-pick cc0f674739668d4e6efb2e9fd54894b4d7d1182a
+
+	Create a review
+		"master" can be replaced in the below steps to send the review to a different release branch 
+		    git checkout master
+		        git pull
+			    git checkout -b my_new_feature  # A temp branch for the review (not starting with dev/*)
+														   //  git merge --squash dev/my_new_feature  # Combine multiple commits on dev branch into single commit for review
+														       git status
+														       	git add 
+															    git commit -s  # Enter a good commit message with the first line a summary. The commit message will be reviewed too!
+															        git review -f master  # The temp branch will be deleted at this step
+																Edit an existing review
+																	git review -l  # List reviews with reviewID and short description
+																	    git review -d <reviewID>  # Switches to a new branch with current contents of review
+																	        # edit/add/delete files
+																		    git add .  # or add new files individually
+																		        git commit --amend
+																			    git review
+																			    ____________________________________________________________________
+
+																			    ____________________________________________________________________
+																			    ymedzyn@broadcom.com
+																			    yaroslav.medzyn toroki account
+#1
+
+yaroslav-medzyn broadcom account
+
+vim src/Ryu/OFDPA_TE/conf/ofdpa_te.json
+
+
+
+
+diff --brief -r opennsl-6.4.6.6-cdp/ test/OpenNSL/ | grep "Only in"
+--------------------------------------------------------------
+git clone -b OpenNSL_6.3 https://github.com/Broadcom-Switch/OpenNSL.git
+git checkout OpenNSL_6.3
+
+git push origin OpenNSL_6.3
+
+diff --brief -r opennsl-6.3.10.7-cdp/ test/6.3/OpenNSL/ | grep "Only in"
+--------------------------------------------------------------
+git clone https://github.com/Broadcom-Switch/of-dpa.git
+
+
+git status
+git add *
+git commit -m 'OpenNSL-6.4.6.6'
+git push origin master
+yaroslav-medzyn
+#1
+
+diff -qrw of-dpa ofdpa-1.0.0.3-cdp | grep "differ"
+diff -qrw of-dpa ofdpa-1.0.0.3-cdp | grep "Only in"
+cp -r ofdpa-1.0.0.3-cdp/* of-dpa/*
+
+
+git config --global user.name "Yaroslav Medzyn"
+git config --global user.email "ymedzyn@broadcom.com"
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
+#git config --global url."https://".insteadOf git://
+git config --global http.proxy http://proxy.ir.intel.com:911
+git config --global https.proxy http://proxy.ir.intel.com:911
+
+
+
+
+
+
+git log
+
+git checkout master
+git pull
+git review -d 
+git rebase origin/master
+
+
