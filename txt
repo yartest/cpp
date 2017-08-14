@@ -1,0 +1,131 @@
+My name is Yaroslav. I have a masters degree in applied mathematics from Lviv Polytechnic University. I am a software engineer with 9 years’ experience in embedded software and applications development. It includes 4 years in C++ development and 5 years in C development. 
+I worked in several companies and in general my responsibilities were the following: develop, maintain and enhance software applications; discuss with a customer and analyse product features, write technical documents; code review; cooperate and work with offshore teams, developers, testers, managers.
+============================
+My pluses are:
+I really like my profession.
+I have solid experience in development and communication with a customer. 
+I am an Organized, Dependable and Hardworking person.
+My minuses are:
+Speaking English skills should be improved. Sometimes it is hard to me to describe clear my opinion.
+I don’t like to lead someone
+I like reading fiction fantasy books, playing ping pong. Also I like backpacking, camping.
+============================
+What part of my work experience would you like me to talk about?
+============================
+Gameloft company designs and develops mobile games. 
+I have been working in Gameloft for last 3 months. A common practice in the Gameloft Lviv office is to give a test task for a new comer. In my case it was to create a simple game engine from scratch. The main requirement was to use only provided OpenGL ES library (native API) without using any other libraries (without GLM). User provided configuration files with resources like a models, textures, shaders, and objects like water, fire, sky, different types of lights and post effects (black and white, blur, bloom, depth of field)
+	The engine made a scene from all that configuration.
+	I have a good mathematics background and it was not hard to me to make matrices calculation for that task.
+	========================================================
+	The test task contained the following requirements: user provides 3 configuration files,
+	The first one is  resources,
+	The second one is scene objects (position, rotation, scaling, Model ID, Texture ID, Shader ID)
+	The third is efects 
+	Models (Vertices of an object), Textures (a color of an object), Shaders (at least 1 Vertex Shader to calculate vertices of an object and 1 Fragment Shader to calculate color of an object)
+	Directions (vectors) should be normalized to have length equal 1. We need to normalize directions. We do not need to normalize positions.
+	Lighting component consists from  Ambient (природнє світло), Diffuse, Specular (дзеркало) lights
+
+
+	in C++, with GLM : Model (World) matrix
+	glm::mat4 ModelMatrix = TranslationMatrix * RotationMatrix * ScaleMatrix;
+	glm::vec4 TransformedVector = ModelMatrix * OriginalVector;
+	glm::mat4 mvp = projection * view * model
+	in my implementation
+	model (object), view (camera, lookAt), projection (camera)
+	mvp = model * view * projection;
+	model = scaleMatrix * rotationZMatrix * rotationXMatrix * rotationYMatrix * translationMatrix;
+		
+	uv displacement, fire only y
+	uv displacement, water x and y.
+
+• Features development
+• Unit tests development and maintenance
+• Troubleshooting system and solving software faults
+• Project documentation development and maintenance
+• Code review
+• Communication with customer
+• Activities planning and estimation
+• Stress testing, benchmarking.
+
+
+
+	I worked in Ostware Services company for almost 4 last years.
+	All its (Ostware Services) projects belong to one area. It’s Networking. Sometimes projects are very similar and customers want to be sure that all private information will stay private. All employees signed non-disclosure agreement.
+	Containerized applications. (non-disclosure agreement)
+	scrum, sprint planning, part of Data Center Group - 
+	I am only one ukrainian persone in my current team. Other team members are from customer side. I don’t like such a structure because it decreases my productivity.
+	The team contains about 10 persons. All their tasks related to Linux containers. Main group of tasks are
+	research current available Software (mostly open-source) that are related to containers, such as Docker, Kubernetes, Docker swarm, some Openstack services, etc.
+	analise possibility transferring (moving) specific solution inside containers and work with it by using Kubernetes, Docker swarm.
+
+	invoke performance testing.
+	For example sub tusk is to create jenkins job to build Kubernetes rpms from sources.
+
+	Kubernetes is an open-source software for automating deployment, scaling, and management of containerized applications. pods, nodes, services, replication controllers.
+	Docker is an open-source container engine. 
+	Docker is a software container platform.
+	Openstack is an open-source software platform for cloud computing. Openstack controller node, Openstack compute node.
+	cloud computing provides shared computer processing resources and data to computers and other devices on demand.
+	Clearwater is an open-source implementation of IP Multimedia Supsystem. Bono, Sprout, Homestead, 
+	OpenVSwitch is an open source software implementation of a virtual multilayer network switch.
+
+	Network performance analysis - benchmarking - synchronization issues 
+
+
+	Performing research and analysis to make optimal architecture and solution decisions
+	Working with physical and virtual computer networks infrastructure, cloud systems
+	Collaborating with team and customer’s experts to discuss and implement new necessary features
+	Activities planning and estimation.
+	Participation in customer’s requirements analysis
+	Stress testing, benchmarking
+	Code review.
+
+
+	ONPSS     
+	Open Network Platform Switch Software
+	iproute2, ifconfig, ip, bridge, ethtool;  
+	netlink sockets, https://habrahabr.ru/post/121254/ 
+	static lags, L2 switching, 
+	sk_buf, net_device represents network interface card
+	Linux kernel network stack, Ethernet device model, 
+	Programmable control plane software that supports customer Ethernet switch
+	device. The project strives to maximize reuse from the Open Source community.
+	Where possible, it uses the existing Linux services and tool chain to configure
+	customer Ethernet switch, and integrates and communicates with these services
+	through standard Linux interfaces.
+
+	Features development
+	Unit tests development and maintenance
+	Troubleshooting system and solving software faults
+	Project documentation development and maintenance
+	Code review
+	Communication with customer.
+	The front-end kernel module is the switch driver model in kernel space,
+	The back-end switch daemon configures the Intel Ethernet switch through the Intel Ethernet switch
+
+	API.
+	ONPSS - солюшин для ДатаЦентрів для віртуалізації,
+	реалізований як НетворОперейшинСистем, змінені утіліти в Лінуксі для підтримки, щоб мати можливість керувати Л2/Л3, приклад Лаги.
+	Проци на хості інетловські
+	Свічін Силікон - Фулкрума - її купила інтел.
+
+
+
+
+	OF-DPA
+	Common abstract OpenFlow-enabled switch model which wraps several different HW platforms. It provides possibility for stand-alone working and configuration without OpenFlow controller using manual command line utilities and Python scripts. The product supports OF 1.3.4 and partially OF.1.5.
+
+	ACL, Switching(MAC, VLAN, port), Unicast Routing (IPv4, IPv6), Multicast Routing, VXLAN, MPLS-TP, MPLS L2-VPN, MPLS L3-VPN
+
+	Developed unified abstraction layer of application for product line.
+	Flow-tables implementation for specific functions and protocols.
+	Development of command-line tools for switch configuration without controller.
+	Implemented support of protocols: VXLAN, MPLS-TP, MPLS L2-VPN, MPLS L3-VPN
+	Code review
+	Unit tests development and maintenance
+	Project documentation development and maintenance.
+
+	MPLS OAM - Operation Administration and Maintenance 
+
+
+
