@@ -1,11 +1,76 @@
 https://git-scm.com/book/ru/v2 ++++
 https://habrahabr.ru/post/268951/ ++++
+https://habr.com/post/68341/ +++
 
-merge and rebase difference 
-rebase дає на 1 менше коміт
-rebase дає кучу проблем якщо хтось наслідувався від твого коміта і з тим проацює
+Difference Between Git and SVN:
+1) Git is a distributed (розподілена) VCS; SVN is a non-distributed (централізована) VCS. (distributed is a form of version control where the complete codebase - including its full history - is mirrored on every developer's computer; centralized VCS a version history is stored in a central server).
+2) The content in Git is stored as metadata; SVN stores files of content. (git зберігає зміни, а SVN зберігає цілі результуючі файли, економія місця)
+3) My opinon: SVN легший для розуміння, більш інтуїтивний, під час виконання опирації не потрібно памятати які дії (команди) користувач робив перед тим.
+Git - економить місце, швидше проходять операції з бранчами на великих проектах, кожну дію треба обдумувати (тратиться час), складніший для розуміння, потрібно памятати а що ти робив в цій папці в останній раз.
 
-http://gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html cherry-pick
+
+GIT
+Кожний коміт позначається хешом (число велике, SHA-1) (яке генерується на основі змін і хешу батьківського коміта, і так включно з самим першим комітом)
+	Коміт не можливо змінити.
+	Вітка - це імя яке вказує на певний коміт.
+	Коли юзер перший раз клонує код з репозиторія, цей репозиторій позначається як origin.
+	При клонуванні (git clone link)  юзер получає список всіх Віток (комітів) оригінала на той момент. origin/branch01, origin/branchXX .. “git branch”
+	Теги - імена для комітів (подібно до віток). \
+		“index” or “staging area” or “cache” - список файлів за якими гіт слідкує.
+		git pull origin master - update sources - якщо не було в юзера ніяких змін то сорси перейдуть в актуальні (найновіші)
+	git pull is the same as:
+		git fetch
+			git merge FETCH_HEAD
+			git pull --rebase is the same as:
+				git fetch - викачує всі зміни локально, але не мержає їх.
+					git rebase
+					git log --oneline --graph --decorate
+					git log --follow file_name - історія для одного файла
+					git show commit_hash
+					git status
+					git checkout -b origin/master - створює нову вітку на основі origin/master і переключається на цю вітку
+					git stash - закинути зміни в тимчасовий псевдокоміт
+					git stash list - глянути список змін в тимчасовому псевдокоміті
+					git stash apply - перемістити назад зміни
+					git checkout commit_hash - переключає вітки - вона витягує файли, 
+					git checkout -- file_name - знищує всі не зафіксовані зміни
+					git reset --hard file_name - знищує всі зміни в файлі ??????
+					git add - добавляє файл
+					git rm - видаляє файл
+					git commit -a
+					git commit -m ‘description’
+					git remote add origin https://github.com/yartest/test - привязка імені до лінки
+					git remote - список віддаленок репозиторіїв (їхні аліаси)
+	git config --get remote.origin.url - перевірка на що вказує origin
+	git remote show origin 
+	git remote -v
+	git push origin master - куди і який бранч
+
+
+	git mv - перейменовує файл
+	git push origin master
+	git merge --abort - відмінити мердж
+	git reset --hard - відмінити всі не зафіксовані зміни
+	git rebase
+	git cherry-pick
+	git rebase --abort
+	HEAD - спеціальне імя вітки яка вказує на то з чим юзар працює прямо зараз.
+	git config --global         ~/.gitconfig
+	не можливо зберігати пусту папку в гіті
+	git branch -a - список всіх віток на даний момент
+	git checkout -b branch name - створює нову вітку і зразу переключається в неї, то саме:
+	git branch branch_name  - створює нову вітку
+	git checkout branch_name - переключається на цю нову вітку
+
+
+
+
+
+	merge and rebase difference 
+	rebase дає на 1 менше коміт
+	rebase дає кучу проблем якщо хтось наслідувався від твого коміта і з тим проацює
+
+	http://gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html cherry-pick
 http://think-like-a-git.net/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html cherry-pick
 https://habrahabr.ru/post/313890/ - how git works
 https://habrahabr.ru/post/280358/ - git, huge repo, productivity issue 
@@ -23,6 +88,24 @@ git config --global user.name "yartest"
 git config --global user.email povezlo@gmail.com
 git config --global core.editor vim
 --------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
