@@ -11,6 +11,8 @@ void map_functions();
 void my_binary_unary_functions();
 void pointers_functions();
 void lambda_functions();
+void test_functions();
+void my_functor_adapters();
 
 // C11 https://habrahabr.ru/post/182920/
 // C11 lambda https://habrahabr.ru/post/66021/
@@ -25,6 +27,7 @@ void lambda_functions();
 int main()
 {
 	try {
+		test_functions();
 		input_output_data();
 		input_output_data_c();
 		string_functions();
@@ -34,8 +37,9 @@ int main()
 		my_binary_unary_functions();
 		pointers_functions();
 		lambda_functions();
+		my_functor_adapters();
 		string str("some description.");
-		throw str;
+		//throw str;
 	}
 	catch (string &info) {
 		cout << "main(): an exception: " << info << endl;
@@ -43,6 +47,6 @@ int main()
 	catch (...) {
 		cout << "main(): an exception has been caught." << endl;
 	}
-	cout << "main(): the end of the main().\n";
+	cout << "\n\tmain(): the end of the main().\n";
 	return 0;
 }

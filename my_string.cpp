@@ -14,23 +14,29 @@ void string_find();
 void string_insert();
 void string_replace();
 void string_substr_swap();
-void string_processing(); // split int to string
+//http://www.martinbroadhurst.com/how-to-split-a-string-in-c.html
+void string_processing_01(); // split int to string
+void string_processing_02(); // split int to string
+void string_processing_03(); // split int to string
 
 void string_functions() {
-	string_constructors();
-	string_append();
-	string_assign();
-	string_at_resize_capacity_reverse();
-	string_compare_copy_erase();
-	string_find();
-	string_insert();
-	string_replace();
-	string_substr_swap();
-	string_processing(); // split int to string
+	//string_constructors();
+	//string_append();
+	//string_assign();
+	//string_at_resize_capacity_reverse();
+	//string_compare_copy_erase();
+	//string_find();
+	//string_insert();
+	//string_replace();
+	//string_substr_swap();
+	//string_processing_01(); // split int to string
+	//string_processing_02(); // split int to string
+	//string_processing_03(); // split int to string
+	//http://www.martinbroadhurst.com/how-to-split-a-string-in-c.html
 }
 
 void string_constructors() {
-	/* char *line = "short line for testing";
+	char *line = "short line for testing";
 	string s1;
 	s1 = "Description";
 	cout << "s1: " << s1 << endl;
@@ -52,11 +58,12 @@ void string_constructors() {
 	// 1 - start iterator
 	// 2 - end iterator
 	string s7 (s3.begin(), s3.end() - 5);
-	cout << "s7: " << s7 << endl; */
+	cout << "s7: " << s7 << endl;
 }
 
 void string_append() {
-	/* string str = "Nobody is perfect";
+
+	string str = "Nobody is perfect";
 	string s   = ""; // empty string
 	char *ch   = "abcdef";
 	s.append(str, 0, 6);
@@ -69,15 +76,17 @@ void string_append() {
 	s.append(3, '!');
 	cout << "s(3): " << s << endl;
 	s.append(ch, 3);
-	cout << "s(4): " << s << endl; */
+	cout << "s(4): " << s << endl;
+
 }
 
 void string_assign() {
-	/* string str = "Nobody is perfect";
+
+	string str = "Nobody is perfect";
 	string s   = "";
 	char *ch   = "Robert Frost";
 	s.assign(str);
-	cout << "s(1): " << s << endl;
+	cout << "s(11): " << s << endl;
 	s.assign(str,10,7); // perfect
 	cout << "s(2): " << s << endl;
 	s.assign(ch, 6);
@@ -87,11 +96,12 @@ void string_assign() {
 	s.assign(str.begin(),str.end());
 	cout << "s(5): " << s << endl;
 	s.assign(17, '*');
-    cout << "s(6): " << s << endl; */
+    cout << "s(6): " << s << endl;
+
 }
 
 void string_at_resize_capacity_reverse() {
-	/* string s = "Nobody is perfect";
+	string s = "Nobody is perfect";
     for ( int pos = 0; pos < s.length(); ++pos )
     	cout << s.at(pos) << " ";
     cout << endl;
@@ -100,7 +110,7 @@ void string_at_resize_capacity_reverse() {
     	cout << s[pos] << " ";
     cout << endl;
 
-	string str = "C++ is best computer language";
+	string str = "C++";
 	cout << "Capacity of str is: " << str.capacity() << endl;
 	cout << "Size of str is    : " << str.size() << endl;
 	cout << "Length of str is  : " << str.length() << endl;
@@ -108,11 +118,11 @@ void string_at_resize_capacity_reverse() {
 	str.resize(50);
 	cout << "Capacity of str is: " << str.capacity() << endl;
 	cout << "Size of str is    : " << str.size() << endl;
-	cout << "Length of str is  : " << str.length() << endl; */
+	cout << "Length of str is  : " << str.length() << endl;
 }
 
 void string_compare_copy_erase() {
-	/* string str1 = "string";
+	string str1 = "string";
 	string str2 = "String1";
 	int compare = str1.compare(str2);
 	if (!compare)
@@ -145,16 +155,19 @@ void string_compare_copy_erase() {
 	s.erase(s.begin() + 1);
 	cout << "s: " << s << endl;
 	s.erase(s.begin(), s.begin() + 4);
-	cout << "s: " << s << endl; */
+	cout << "s: " << s << endl;
 }
 
 void string_find() {
-	/* string  str("C++ is best language");
+	string  str("C++ is best language");
 	size_t pos1, pos2;
 	pos1 = str.find ("best");
 	cout << "Word \"best\" is found on position: " << pos1 + 1 << endl;
 	pos2 = str.find ("best", pos1 + 1);
 	cout << "Word best is found on position: " << pos2 + 1 << endl;
+	if (pos2 == string::npos) {
+		cout << "not found" << endl;
+	}
     pos1 = str.find('g');
     cout << "First character 'g' found on position: " << pos1 << endl << endl;
 
@@ -164,11 +177,11 @@ void string_find() {
 	pos1 = str.find_first_of(" bae", 0);
 	cout << "First consonant found at " << pos1 + 1 << " position" << endl << endl;
 	//				find_last_not_of
-	//				find_last_of */
+	//				find_last_of
 }
 
 void string_insert() {
-	/* string str = "C++ language";
+	string str = "C++ language";
 	string s   = "is best";
 	char ch[]  = "C++ language";
 	cout << "str: " << str << endl;
@@ -176,12 +189,12 @@ void string_insert() {
 	cout << "ch: " << ch << endl;
 	size_t pos = 4;
 	str.insert(pos, s);
-	cout << "str: " << str << endl;
+	cout << "str 123: " << str << endl;
 	pos = str.find('l');
 	str.insert(str.begin() + pos, ' ');
     cout << "str: " << str << endl;
 	str.insert(str.end(), 3, '!');
-	cout << "str: " << str << endl << endl;
+	cout << "str 000: " << str << endl << endl;
     s.insert(0, ch, 4);
     cout << "s: " << s << endl;
 	pos = str.find('l');
@@ -192,11 +205,11 @@ void string_insert() {
 	s.insert(s.begin() + pos, ' ');
 	cout << "s   is: " << s   << endl;
     s.insert(s.begin() + 4, str.begin(), str.begin() + 7);
-    cout << "s   is: " << s   << endl; */
+    cout << "s   is: " << s   << endl;
 }
 
 void string_replace() {
-	/* string str = "STL is created from Dennis Ritchie";
+	string str = "STL is created from Dennis Ritchie";
 	string s1  = "was";
 	string s2  = "developed";
 	string s3  = "Stepanov Alexander";
@@ -251,11 +264,11 @@ void string_replace() {
             str.end(), // to the end of str
             s3.begin(), // start pointer from source
             s3.begin() + y1); // end pointer from source
-    cout << "str: " << str << endl; */
+    cout << "str: " << str << endl;
 }
 
 void string_substr_swap() {
-    /* string str = "We go step by step to the target", str2 = "Test";
+    string str = "We go step by step to the target", str2 = "Test";
     cout << "str: " << str << endl;
     int n = str.find("step");
     string s = str.substr(n);
@@ -265,18 +278,18 @@ void string_substr_swap() {
 
     str.swap(str2);
     cout << "str: " << str << endl;
-    cout << "str2: " << str2 << endl; */
+    cout << "str2: " << str2 << endl;
 }
 
-void string_processing() {
-	/* string input = "145;24;32;";
+void string_processing_01() {
+	string input = "145;24;32;";
 	stringstream ss(input);
 	string part;
 	int number;
 	stringstream s_part;
 	string error_msg("convert error");
 
-	while(getline(ss, part, ';')) {
+	while(std::getline(ss, part, ';')) {
 	    std::cout << part << endl;
 	    s_part << part;
 	    if( (s_part >> number).fail() ) {
@@ -286,8 +299,37 @@ void string_processing() {
 	    //number = stoi(part); //C++11 only
 	    s_part.clear();
 	}
+	// example from string to int and vise versa
 	string test;
 	s_part << number;
 	s_part >> test;
-	cout << "test = " << test << endl; */
+	cout << "test = " << test << endl;
 }
+
+void string_processing_02() {
+	string input = "145;;24;;32;;";
+	string delimiter = ";;";
+
+	size_t pos = 0;
+	string part;
+	while ((pos = input.find(delimiter)) != string::npos) {
+		part = input.substr(0, pos);
+		cout << part << "~~~";
+		input.erase(0, pos + delimiter.length());
+	}
+	cout << endl;
+}
+
+void string_processing_03() {
+	string input = "145;;24;;32;;";
+	string delimiter = ";;";
+
+	size_t posFirst = 0, posLast = 0;
+	string part;
+	while ((posLast = input.find(delimiter, posFirst)) != string::npos) {
+		part = input.substr(posFirst, (posLast - posFirst));
+		cout << part << "+++";
+		posFirst = posLast + delimiter.length();
+	}
+}
+
