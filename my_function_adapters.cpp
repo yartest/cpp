@@ -28,7 +28,7 @@ public:
 void my_functor_adapters_01(); //ptr_fun mem_fun mem_fun_ref
 
 void my_functor_adapters() {
-	my_functor_adapters_01();
+	//my_functor_adapters_01();
 }
 
 void my_functor_adapters_01() {

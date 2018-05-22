@@ -13,6 +13,7 @@ using namespace std;
 void unique_pointer_functions();
 // shared_ptr: count all references; 'make_shared<T>()' 'reset()' 'get()' '='
 void shared_pointer_functions();
+// weak_ptr: 'expired()'
 void weak_pointer_functions();
 
 void pointers_functions() {
@@ -22,7 +23,9 @@ void pointers_functions() {
 }
 
 void unique_pointer_functions() {
-	/* unique_ptr<int> x_ptr(new int(3));
+	unique_ptr<int> x_ptr(new int(3));
+	//Error only from C++14 - make_unique<int>(3);
+	//unique_ptr<int> x_ptr = make_unique<int>(3);
 	x_ptr = unique_ptr<int>(new int(4));
 	unique_ptr<int> y_ptr;
 	// compilation error
@@ -43,18 +46,23 @@ void unique_pointer_functions() {
 	cout << "ptr: " << *ptr << endl;
 	y_ptr.reset(ptr);
 	ptr = nullptr;
-	cout << "y_ptr: " << *y_ptr << endl; */
+	cout << "y_ptr: " << *y_ptr << endl;
 }
 
 void shared_pointer_functions() {
-	/* shared_ptr<int> ptr = make_shared<int>(8);
-	cout << "ptr: " << *ptr << endl; */
+	shared_ptr<int> ptr = make_shared<int>(8);
+	cout << "ptr: " << *ptr << endl;
 }
 
 void weak_pointer_functions() {
-	/* shared_ptr<int> ptr = make_shared<int>(7);
+	shared_ptr<int> ptr = make_shared<int>(7);
 	weak_ptr<int> w(ptr);
+	if (w.expired()) {
+		cout << "weak_ptr is exipred" << endl;
+	} else {
+		cout << "weak_ptr is NOT exipred" << endl;
+	}
 	if (shared_ptr<int> temp = w.lock()) {
 	    cout << "value: " << *temp << endl;
-	} */
+	}
 }
