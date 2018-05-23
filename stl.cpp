@@ -13,6 +13,8 @@ void pointers_functions();
 void lambda_functions();
 void test_functions();
 void my_functor_adapters();
+void my_threads_one();
+void my_threads_two();
 
 // C11 https://habrahabr.ru/post/182920/
 // C11 lambda https://habrahabr.ru/post/66021/
@@ -38,6 +40,8 @@ int main()
 		pointers_functions();
 		lambda_functions();
 		my_functor_adapters();
+		my_threads_one();
+		my_threads_two();
 		string str("some description.");
 		//throw str;
 	}

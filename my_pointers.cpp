@@ -17,9 +17,9 @@ void shared_pointer_functions();
 void weak_pointer_functions();
 
 void pointers_functions() {
-	unique_pointer_functions();
-	shared_pointer_functions();
-	weak_pointer_functions();
+	//unique_pointer_functions();
+	//shared_pointer_functions();
+	//weak_pointer_functions();
 }
 
 void unique_pointer_functions() {

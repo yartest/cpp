@@ -7,8 +7,16 @@
 
 using namespace std;
 
-// resize, size; reserve, capacity;
+// std::array - its size is fixed at compile time and
+// it will be allocated as a single chunk (e.g. taking space
+// on the stack)
+// - кількість елементів відома перед компіляцією,
+// - память для елементів виділяється на стеку
+// цими двома пунктами він відрізняється від вектора
 
+
+
+// resize, size; reserve, capacity;
 void vector_constructors();
 void vector_assign_at_back_clear_empty();
 void vector_erase_push_back_insert();
