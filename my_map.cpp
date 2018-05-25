@@ -17,52 +17,48 @@ void map_functions() {
 }
 
 void map_constructors() {
-	/* //typedef map<int, char, less<int> > M;
-	typedef map<int, char> M;
+	//typedef map<int, char, less<int> > M;
+	using M = map<int, char>;
 	M m1;
 	m1.insert(make_pair(2,'B'));
 	m1.insert(M::value_type(3,'C'));
 	m1.insert(pair<int, char>(1,'A'));
 	M::iterator It = m1.begin();
 	cout << "m1:" << endl;
-	while ( It != m1.end() ) {
-		cout << (*It).first << " - " << (*It).second << endl;
-        It++;
-    }
+	for (const auto &element: m1) {
+		cout << element.first << " - " << element.second << endl;
+	}
     M m2(m1);
-    It = m2.begin();
     cout << "m2:" << endl;
-    while ( It != m2.end() ) {
-        cout << (*It).first << " - " << (*It).second << endl;
-        It++;
-    }
+	for (const auto &element: m2) {
+		cout << element.first << " - " << element.second << endl;
+	}
     M m3(m2.begin(),m2.end());
-    It = m3.begin();
     cout << "m3:" << endl;
-    while ( It != m3.end() ) {
-        cout << (*It).first << " - " << (*It).second << endl;
-        It++;
-    } */
+	for (const auto &element: m3) {
+		cout << element.first << " - " << element.second << endl;
+	}
 }
 
 void map_lower_bound_upper_bound_equal_range() {
-	/* typedef map<int, char> M;
+	using M = map<int, char>;
 	M m1;
 	m1[2] = 'B'; m1[1] = 'A'; m1[3] = 'C';
 	m1[11] = 'X'; m1[12] = 'Y'; m1[13] = 'Z';
-	M::iterator It = m1.begin();
 	cout << "m1:" << endl;
-	while ( It != m1.end() ) {
-		cout << (*It).first << " - " << (*It).second << ": ";
-        It++;
-    }
+	for (const auto &element: m1) {
+		cout << element.first << " - " << element.second << ":";
+	}
 	cout << endl;
-	It = m1.lower_bound(2);  // itlow points to 2
+	cout << "2:" << endl;
+
+	auto It = m1.lower_bound(2);  // itlow points to 2
 	cout << (*It).first << " - " << (*It).second << endl;
 	It = m1.upper_bound(2);   // itup points to 3
 	cout << (*It).first << " - " << (*It).second << endl;
 	It = m1.equal_range(12).first;
 	cout << (*It).first << " - " << (*It).second << endl;
 	It = m1.equal_range(12).second;
-	cout << (*It).first << " - " << (*It).second << endl; */
+	cout << (*It).first << " - " << (*It).second << endl;
 }
+

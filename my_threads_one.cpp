@@ -8,8 +8,9 @@
 // std::ref(var) - to provide a reference to a thread
 // thread.detach(), .join(), .get_id(), .yield(), .sleep_for(),
 // .sleep_until(),
-
-// mutex, recursive_mutex
+// mutex, recursive_mutex, timed_mutex, recursive_timed_mutex
+// unique_lock<mutex>
+// condition_variable
 
 using namespace std;
 
@@ -24,8 +25,8 @@ void my_construct_data();
 void my_proccess_data();
 
 void my_threads_one() {
-	my_thread_01();
-	my_thread_02();
+	//my_thread_01();
+	//my_thread_02();
 }
 
 void my_thread_01() {
@@ -49,24 +50,22 @@ void my_thread_02() {
 void my_construct_data() {
 	cout << "my_construct_data() start" << endl;
 	this_thread::sleep_for(chrono::seconds(10));
-
-	m_data.lock();
-	this_thread::sleep_for(chrono::seconds(10));
-	g_data++;
-	m_data.unlock();
-
+	{
+		unique_lock<mutex> lock(m_data);
+		this_thread::sleep_for(chrono::seconds(10));
+		g_data++;
+	}
 	cout << "my_construct_data() end" << endl;
 }
 
 bool isDataReady() {
 	cout << "\tisDataReady() start" << endl;
 	bool ready = false;
-
-	m_data.lock();
-	if (g_data != 0)
-		ready = true;
-	m_data.unlock();
-
+	{
+		unique_lock<mutex> lock(m_data);
+		if (g_data != 0)
+			ready = true;
+	}
 	cout << "\tisDataReady() end" << endl;
 	return ready;
 
@@ -78,9 +77,10 @@ void my_proccess_data() {
 		this_thread::sleep_for(chrono::seconds(1));
 
 	cout << "my_proccess_data() start" << endl;
-	m_data.lock();
-	cout << "g_data=" << g_data << endl;
-	m_data.unlock();
+	{
+		unique_lock<mutex> lock(m_data);
+		cout << "g_data=" << g_data << endl;
+	}
 	cout << "my_proccess_data() end" << endl;
 }
 ///////////////////////////////////////////////////////
