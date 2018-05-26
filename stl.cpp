@@ -1,4 +1,5 @@
 #include <iostream>
+#include <exception>
 
 using namespace std;
 
@@ -48,9 +49,12 @@ int main()
 	catch (string &info) {
 		cout << "main(): an exception: " << info << endl;
 	}
-	catch (...) {
-		cout << "main(): an exception has been caught." << endl;
+	catch (std::exception &e) {
+		cerr << " main(): catch (std::exception &e): " << e.what() << endl;
 	}
-	cout << "\n\tmain(): the end of the main().\n";
+	catch (...) {
+		cerr << "main(): catch (...):" << endl;
+	}
+	cerr << "\n\tmain(): the end of the main().\n";
 	return 0;
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <unordered_map>
 #include <algorithm>
 #include <iterator>
 
@@ -12,8 +13,8 @@ void map_lower_bound_upper_bound_equal_range();
 // map::insert do nothing if already exist
 
 void map_functions() {
-	map_constructors();
-	map_lower_bound_upper_bound_equal_range();
+	//map_constructors();
+	//map_lower_bound_upper_bound_equal_range();
 }
 
 void map_constructors() {
@@ -36,6 +37,13 @@ void map_constructors() {
     M m3(m2.begin(),m2.end());
     cout << "m3:" << endl;
 	for (const auto &element: m3) {
+		cout << element.first << " - " << element.second << endl;
+	}
+
+	using UM = unordered_map<int, char>;
+	UM um1(m1.begin(), m1.end());
+    cout << "um1:" << endl;
+	for (const auto &element: um1) {
 		cout << element.first << " - " << element.second << endl;
 	}
 }

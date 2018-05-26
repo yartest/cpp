@@ -14,8 +14,6 @@ using namespace std;
 // - память для елементів виділяється на стеку
 // цими двома пунктами він відрізняється від вектора
 
-
-
 // resize, size; reserve, capacity;
 void vector_constructors();
 void vector_assign_at_back_clear_empty();
@@ -33,11 +31,11 @@ void vector_constructors() {
 	string str[]= {"Alex", "John", "Robert"};
 	vector<int> v1;
 	vector<int> v2(10); // 10 elements
+	copy(v2.cbegin(), v2.cend(), ostream_iterator<int>(cout, ":"));
+	cout << endl;
     vector<int> v3(10, 0); // 10 elements with value 0
     vector<string> v4(str + 0, str + 3);
-    vector<string>::iterator sIt = v4.begin();
-    while (sIt != v4.end())
-        cout << *sIt++ << " ";
+    copy(v4.cbegin(), v4.cend(), ostream_iterator<string>(cout, ":"));
     cout << endl;
     vector<string> v5(v4);
     for (size_t i = 0; i < v5.size(); i++) {
