@@ -55,6 +55,6 @@ int main()
 	catch (...) {
 		cerr << "main(): catch (...):" << endl;
 	}
-	cerr << "\n\tmain(): the end of the main().\n";
+	cout << "\n\tmain(): the end of the main().\n";
 	return 0;
 }
