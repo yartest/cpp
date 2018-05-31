@@ -38,8 +38,8 @@ void my_threads_one() {
 	//my_thread_04();
 	//my_thread_05();
 	//my_thread_06();
-	my_thread_07();
-	my_thread_08();
+	//my_thread_07();
+	//my_thread_08();
 }
 
 void my_thread_01() {
