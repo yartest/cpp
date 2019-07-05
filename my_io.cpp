@@ -22,7 +22,7 @@ void input_output_string() {
 }
 
 void input_output_file() {
-	string file_name("/home/yaroslav/workspace/stl/test_file.dat");
+	string file_name("/home/test/workspace/test_file.dat");
 	ofstream ofile_test(file_name);
 	//ofstream ofile_test(file_name.c_str());
 	if (!ofile_test.is_open()) {

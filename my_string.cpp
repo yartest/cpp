@@ -77,7 +77,6 @@ void string_append() {
 	cout << "s(3): " << s << endl;
 	s.append(ch, 3);
 	cout << "s(4): " << s << endl;
-
 }
 
 void string_assign() {
@@ -128,7 +127,7 @@ void string_compare_copy_erase() {
 	if (!compare)
 		cout << "str1 is equal str2" << endl;
 	else
-		cout << "st1 is not equal str2" << endl;
+		cout << "str1 is not equal str2" << endl;
 
 	string str = "First Name: Robert", s;
 	char fname[255];
@@ -143,6 +142,7 @@ void string_compare_copy_erase() {
 	str = "";
 	for(char ch = 'a'; ch <= 'z'; ch++ )
 		str.append(1, ch);
+
 	s = str;
 	cout << "str: " << str << endl;
 	cout << "s: " << s << endl;
@@ -168,8 +168,8 @@ void string_find() {
 	if (pos2 == string::npos) {
 		cout << "not found" << endl;
 	}
-    pos1 = str.find('g');
-    cout << "First character 'g' found on position: " << pos1 << endl << endl;
+    pos1 = str.find('+');
+    cout << "First character '+' found on position: " << pos1 + 1 << endl << endl;
 
 	pos1 = str.find_first_not_of("aeiouAEIOUCs+", 8);
 	cout << "First consonant found at " << pos1 + 1 << " position" << endl << endl;
@@ -185,7 +185,7 @@ void string_insert() {
 	string s   = "is best";
 	char ch[]  = "C++ language";
 	cout << "str: " << str << endl;
-	cout << "s: " << s << endl;
+	cout << "s: " << s.c_str() << endl;
 	cout << "ch: " << ch << endl;
 	size_t pos = 4;
 	str.insert(pos, s);
@@ -276,7 +276,7 @@ void string_substr_swap() {
     s = str.substr(n, 12);
     cout << "s: " << s << endl;
 
-    str.swap(str2);
+	str.swap(str2);
     cout << "str: " << str << endl;
     cout << "str2: " << str2 << endl;
 }
@@ -299,11 +299,17 @@ void string_processing_01() {
 	    //number = stoi(part); //C++11 only
 	    s_part.clear();
 	}
-	// example from string to int and vise versa
+	// example from int to string
 	string test;
 	s_part << number;
 	s_part >> test;
 	cout << "test = " << test << endl;
+	// example from string to int
+	s_part.clear();
+	s_part << test;
+	if ( (s_part >> number).fail() )
+		throw error_msg;
+	cout << "number = " << number << endl << endl;
 }
 
 void string_processing_02() {

@@ -31,7 +31,7 @@ void set_functions();
 int main()
 {
 	try {
-		test_functions();
+		//test_functions();
 		input_output_data();
 		input_output_data_c();
 		string_functions();
@@ -39,12 +39,12 @@ int main()
 		list_functions();
 		map_functions();
 		my_binary_unary_functions();
-		pointers_functions();
-		lambda_functions();
-		my_functor_adapters();
-		my_threads_one();
-		my_threads_two();
-		set_functions();
+		//pointers_functions();
+		//lambda_functions();
+		//my_functor_adapters();
+		//my_threads_one();
+		//my_threads_two();
+		//set_functions();
 		string str("some description.");
 		//throw str;
 	}

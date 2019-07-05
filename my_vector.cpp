@@ -31,7 +31,8 @@ void vector_constructors() {
 	string str[]= {"Alex", "John", "Robert"};
 	vector<int> v1;
 	vector<int> v2(10); // 10 elements
-	copy(v2.cbegin(), v2.cend(), ostream_iterator<int>(cout, ":"));
+	//copy(v2.cbegin(), v2.cend(), ostream_iterator<int>(cout, ":"));
+	copy(begin(v2), end(v2), ostream_iterator<int>(cout, ":"));
 	cout << endl;
     vector<int> v3(10, 0); // 10 elements with value 0
     vector<string> v4(str + 0, str + 3);
@@ -47,8 +48,13 @@ void vector_constructors() {
 
 void vector_assign_at_back_clear_empty() {
 	int ary[]= {1, 2, 3, 4, 5};
-	vector<int> v;
+	vector<int> v(10);
+	cout << "v.capacity() = " << v.capacity() << endl;
+	cout << "v.size() = " << v.size() << endl;
+
 	v.assign(ary, ary + 5);
+	cout << "v.capacity() = " << v.capacity() << endl;
+	cout << "v.size() = " << v.size() << endl;
 	copy(v.begin(), v.end(), ostream_iterator<int>(cout," "));
     cout << endl;
     v.assign(3, 100); // 3 elements with value 100

@@ -28,7 +28,7 @@ void lambda_functions() {
 void lambda_function_01() {
 	cout << "GCC version: " << __GNUC__ << "." << __GNUC_MINOR__ << "." << __GNUC_PATCHLEVEL__
         << "\nVersion string: " << __VERSION__ << endl;
-
+/*
 	int ary[] = {1, 2, 3, 4, 5};
 	list<int> lst(ary, ary + 5);
 	auto vyvid = [](int element){ cout << element << ":";};
@@ -85,4 +85,5 @@ void lambda_function_01() {
 	for_each(&mas[0][0], &mas[0][0] + mR * mC, vyvid);
 	cout << endl;
 	cout << "------------2D ARRAY END---------------------------\n";
+	*/
 }

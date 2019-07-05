@@ -24,7 +24,8 @@ void map_constructors() {
 	m1.insert(make_pair(2,'B'));
 	m1.insert(M::value_type(3,'C'));
 	m1.insert(pair<int, char>(1,'A'));
-	M::iterator It = m1.begin();
+	M::iterator It = begin(m1);
+
 	cout << "m1:" << endl;
 	for (const auto &element: m1) {
 		cout << element.first << " - " << element.second << endl;

@@ -22,14 +22,14 @@ mutex					g_mutex;
 condition_variable 		g_conditionVariable;
 int 					g_data = 0;
 
-void my_thread_01();
-void my_thread_02();
-void my_thread_03();
-void my_thread_04();
-void my_thread_05();
-void my_thread_06();
-void my_thread_07();
-void my_thread_08();
+//void my_thread_01();
+//void my_thread_02();
+//void my_thread_03();
+//void my_thread_04();
+//void my_thread_05();
+//void my_thread_06();
+//void my_thread_07();
+//void my_thread_08();
 
 void my_threads_one() {
 	//my_thread_01();
@@ -41,7 +41,7 @@ void my_threads_one() {
 	//my_thread_07();
 	//my_thread_08();
 }
-
+/*
 void my_thread_01() {
 	auto func = [](const string &first, const string &second) {
 		cout << "first:\"" << first << "\" second:\"" << second << "\"" << endl;
@@ -55,6 +55,8 @@ void my_thread_01() {
 	//thr.join();
 	//thr.detach();
 }
+*/
+/*
 ///////////////////////////////////////////////////////////////////
 void my_construct_data() {
 	cout << "my_construct_data() start" << endl;
@@ -258,3 +260,4 @@ void my_thread_07() {
 void my_thread_08() {
 
 }
+*/

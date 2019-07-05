@@ -1,3 +1,10 @@
+
+g++ -std=c++11 -o test my_list.cpp
+Eclipse:
+Ctrl-m
+Alt-F11
+
+
 My name is Yaroslav. I have a masters degree in applied mathematics from Lviv Polytechnic University. 
 I am a software engineer with 9 years’ experience in embedded software and applications development. 
 It includes 4 years in C++ development and 5 years in C development. 

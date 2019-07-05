@@ -224,7 +224,7 @@ void printUsageError(char *programName) {
 }
 
 void test_functions() {
-	/*
+
     srand(time(NULL));
 
     sudoku::Field field{};
@@ -232,6 +232,4 @@ void test_functions() {
     field.printBoard();
     //stringstream output;
 	//output << field.serialize() << '\n';
-	 *
-	 */
 }
