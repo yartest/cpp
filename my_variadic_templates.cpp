@@ -1,42 +1,93 @@
+#include <cstdint>
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <iterator>
+#include <string>
+#include <typeinfo>
 
-using namespace std;
-
-template <class T1> struct my_power2_unary : public unary_function <T1, void>
-{
-	void operator() (const T1& base) const {
-		T1 res(base);
-		res *= base;
-		cout << base << " ^ 2 = " << res << endl;
-	}
-};
-
-template <class T1, class T2> struct my_power_binary : public binary_function <T1, T2, void>
-{
-	void operator() (const T1 &base, const T2 &exp) const {
-		T1 res = 1;
-		for(T1 i = 1; i <= exp; ++i)
-			res *= base;
-		cout << base << " ^ " << exp << " = " << res << endl;
-	}
-};
-
-void my_binary_unary_function_01();
-
-void my_binary_unary_functions() {
-	//my_binary_unary_function_01();
+template<typename T>
+T adder(T v)
+{	std::cout << __PRETTY_FUNCTION__ << "\n";
+	return v;
 }
 
-void my_binary_unary_function_01() {
-	int ary[] = {1, 2, 3, 4, 5};
-	vector<int> vec(ary, ary + 5);
-	for_each(vec.begin(), vec.end(), my_power2_unary<int>());
-	cout << "\n\t";
-	copy(vec.begin(), vec.end(), ostream_iterator<int>(cout, " "));
-	cout << "\n";
-	for_each(vec.begin(), vec.end(), bind2nd(my_power_binary<int, int>(), 3));
-	cout << "\n";
+template<typename T, typename ... Ars>
+T adder(T first, Ars ... args)
+{	std::cout << __PRETTY_FUNCTION__ << "\n";
+	return first + adder(args...);
+}
+
+static int iCounter = 0;
+
+template<typename... Ars>
+void adderSecond(Ars... args)
+{	std::cout << __PRETTY_FUNCTION__ << "\n";
+	++iCounter;
+	std::cout << "iCounter = " << iCounter << " The last one.\n";
+}
+
+template<typename T, typename ... Ars>
+void adderSecond(T first, Ars ... args)
+{	std::cout << __PRETTY_FUNCTION__ << "\n";
+	++iCounter;
+	std::cout << "iCounter = " << iCounter << "\n";
+	return adderSecond(args...);
+}
+
+
+template <class... Ts> struct VariadicTemplates {};
+
+template <class T, class... Ts>
+struct VariadicTemplates<T, Ts...> : VariadicTemplates<Ts...> {
+	VariadicTemplates(T t, Ts... ts) :
+		VariadicTemplates<Ts...>(ts...), tail(t) {}
+
+  T tail;
+};
+/*
+template <size_t, class> struct elem_type_holder;
+
+template <class T, class... Ts>
+struct elem_type_holder<0, VariadicTemplates<T, Ts...>> {
+  typedef T type;
+};
+
+template <size_t k, class T, class... Ts>
+struct elem_type_holder<k, VariadicTemplates<T, Ts...>> {
+  typedef typename elem_type_holder<k - 1, VariadicTemplates<Ts...>>::type type;
+};
+
+template <size_t k, class... Ts>
+typename std::enable_if<
+    k == 0, typename elem_type_holder<0, VariadicTemplates<Ts...>>::type&>::type
+get(VariadicTemplates<Ts...>& t) {
+  return t.tail;
+}
+
+template <size_t k, class T, class... Ts>
+typename std::enable_if<
+    k != 0, typename elem_type_holder<k, VariadicTemplates<T, Ts...>>::type&>::type
+get(VariadicTemplates<T, Ts...>& t) {
+	VariadicTemplates<Ts...>& base = t;
+  return get<k - 1>(base);
+}
+*/
+void my_variadic_templates_01();
+//https://eli.thegreenplace.net/2014/variadic-templates-in-c/
+void my_variadic_templates() {
+	my_variadic_templates_01();
+}
+
+void my_variadic_templates_01() {
+	std::string s1 = "S01", s2 = "S02", s11 = "S11", s12 = "S12";
+
+	std::string res = adder(s1, s2, s11, s12);
+	std::cout << "res = " << res << "\n";
+
+	adderSecond(s1, s2, s11, s12);
+
+	VariadicTemplates<double> vt1(12.2);
+	std::cout << "sizeof (VariadicTemplates) = " << sizeof(vt1) << "\n";
+	VariadicTemplates<double, int> vt2(12.2, 42);
+	std::cout << "sizeof (VariadicTemplates) = " << sizeof(vt2) << "\n";
+	VariadicTemplates<double, int, const char*> vt3(12.2, 42, "One two three");
+	std::cout << "sizeof (VariadicTemplates) = " << sizeof(vt3) << "\n";
 }

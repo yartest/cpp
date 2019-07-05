@@ -10,6 +10,7 @@ void vector_functions();
 void list_functions();
 void map_functions();
 void my_binary_unary_functions();
+void my_variadic_templates();
 void pointers_functions();
 void lambda_functions();
 void test_functions();
@@ -39,6 +40,7 @@ int main()
 		list_functions();
 		map_functions();
 		my_binary_unary_functions();
+		my_variadic_templates();
 		//pointers_functions();
 		//lambda_functions();
 		//my_functor_adapters();
