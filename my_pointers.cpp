@@ -104,4 +104,7 @@ void weak_pointer_functions() {
 		cout << "count: " << w.use_count() << endl;
 	    cout << "value: " << *temp << endl;
 	}
+
+	int &&k = 10;
+	cout << "k = " << k << "\n";
 }
