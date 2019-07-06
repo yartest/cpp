@@ -12,6 +12,7 @@ void map_functions();
 void my_binary_unary_functions();
 void my_variadic_templates();
 void my_base_derived();
+void my_rvalue_lvalue();
 void pointers_functions();
 void lambda_functions();
 void test_functions();
@@ -43,7 +44,8 @@ int main()
 		my_binary_unary_functions();
 		my_variadic_templates();
 		pointers_functions();
-		my_base_derived();
+		//my_base_derived();
+		my_rvalue_lvalue();
 		//lambda_functions();
 		//my_functor_adapters();
 		//my_threads_one();
