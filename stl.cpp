@@ -41,7 +41,7 @@ int main()
 		map_functions();
 		my_binary_unary_functions();
 		my_variadic_templates();
-		//pointers_functions();
+		pointers_functions();
 		//lambda_functions();
 		//my_functor_adapters();
 		//my_threads_one();

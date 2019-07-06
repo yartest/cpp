@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <typeinfo>
+#include <vector>
+#include <list>
 
 template<typename T>
 T adder(T v)
@@ -42,7 +44,7 @@ struct VariadicTemplates<T, Ts...> : VariadicTemplates<Ts...> {
 
   T tail;
 };
-/*
+////////////////////////////////////////////////////////////////
 template <size_t, class> struct elem_type_holder;
 
 template <class T, class... Ts>
@@ -69,11 +71,14 @@ get(VariadicTemplates<T, Ts...>& t) {
 	VariadicTemplates<Ts...>& base = t;
   return get<k - 1>(base);
 }
-*/
+
 void my_variadic_templates_01();
+void my_variadic_templates_02();
 //https://eli.thegreenplace.net/2014/variadic-templates-in-c/
+//https://en.cppreference.com/w/cpp/language/parameter_pack
 void my_variadic_templates() {
-	my_variadic_templates_01();
+	//my_variadic_templates_01();
+	//my_variadic_templates_02();
 }
 
 void my_variadic_templates_01() {
@@ -90,4 +95,29 @@ void my_variadic_templates_01() {
 	std::cout << "sizeof (VariadicTemplates) = " << sizeof(vt2) << "\n";
 	VariadicTemplates<double, int, const char*> vt3(12.2, 42, "One two three");
 	std::cout << "sizeof (VariadicTemplates) = " << sizeof(vt3) << "\n";
+
+	VariadicTemplates<double, uint64_t, const char*> vt5(12.2, 42, "One two three");
+
+	std::cout << "\n0th elem is " << get<0>(vt5) << "\n";
+	std::cout << "1th elem is " << get<1>(vt5) << "\n";
+	std::cout << "2th elem is " << get<2>(vt5) << "\n";
+
+}
+
+template < template <typename, typename ...> class ContainerType, typename ValueType, typename ... Args>
+void printContainer(const ContainerType<ValueType, Args ...> &c)
+{
+	for (const auto& v : c) {
+		std::cout << v << ":";
+	}
+	std::cout << "\n";
+}
+
+void my_variadic_templates_02()
+{
+	std::vector<double> vec{1.0, 4.5, 7.77};
+	printContainer(vec);
+
+	std::list<const char*> li{"yeyey", "---", "333"};
+	printContainer(li);
 }
