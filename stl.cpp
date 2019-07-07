@@ -44,9 +44,9 @@ int main()
 		my_binary_unary_functions();
 		my_variadic_templates();
 		pointers_functions();
-		//my_base_derived();
+		my_base_derived();
 		my_rvalue_lvalue();
-		//lambda_functions();
+		lambda_functions();
 		//my_functor_adapters();
 		//my_threads_one();
 		//my_threads_two();

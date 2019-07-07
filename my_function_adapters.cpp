@@ -36,9 +36,12 @@ void my_functor_adapters_01() {
 	vector<Element*> vecPointers;	// size == 1
 	vecPointers.push_back(&vec[0]);
 	for_each(vec.begin(), vec.end(), mem_fun_ref(&Element::print));
+	cout << "a\n";
 	for_each(vecPointers.begin(), vecPointers.end(),
 						mem_fun(&Element::print));
+	cout << "b\n";
 	for_each(vec.begin(), vec.end(), my_print_ref);
+	cout << "c\n";
 	for_each(vecPointers.begin(), vecPointers.end(), ptr_fun(my_print));
 
 }

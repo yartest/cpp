@@ -7,7 +7,7 @@ using namespace std;
 void my_rvalue_lvalue_01();
 
 void my_rvalue_lvalue() {
-	my_rvalue_lvalue_01();
+	//my_rvalue_lvalue_01();
 }
 
 void print_value(int &in) {
@@ -28,4 +28,11 @@ void my_rvalue_lvalue_01() {
 	print_value(static_cast<int&&>(test));
 	print_value(move(test));
 	print_value(get_7());
+
+	char t = 'a';
+	char & rT = t;
+	char && rrChar = '6';
+	cout << "sizeof(char) = " << sizeof(t) << endl;
+	cout << "sizeof(char&) = " << sizeof(rT) << endl;
+	cout << "sizeof(char&&) = " << sizeof(rrChar) << endl;
 }

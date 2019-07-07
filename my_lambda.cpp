@@ -2,6 +2,7 @@
 #include <list>
 #include <algorithm>
 #include <iterator>
+#include <functional>
 
 using namespace std;
 /*
@@ -28,12 +29,13 @@ void lambda_functions() {
 void lambda_function_01() {
 	cout << "GCC version: " << __GNUC__ << "." << __GNUC_MINOR__ << "." << __GNUC_PATCHLEVEL__
         << "\nVersion string: " << __VERSION__ << endl;
-/*
+
 	int ary[] = {1, 2, 3, 4, 5};
 	list<int> lst(ary, ary + 5);
-	auto vyvid = [](int element){ cout << element << ":";};
-	for_each(begin(lst), end(lst), vyvid);
+	auto vyvid = [](int element) { cout << element << ":";};
+	for_each(lst.cbegin(), lst.cend(), vyvid);
 	cout << endl;
+
 /// reference as an argument
 	for_each(begin(lst), end(lst), [](int& element) { element += 1;});
 	for_each(lst.begin(), lst.end(), vyvid);
@@ -41,18 +43,34 @@ void lambda_function_01() {
 
 	auto is_odd = [](int n) -> bool {return n % 2 == 1;};
 
-	auto lambdaChange = [] (int elem) -> int {return elem + elem;};
+	function<int (int)> lambdaChange = [] (int elem) -> int {return elem + elem;};
 	list<int> result;
 	transform(begin(lst), end(lst), back_inserter(result), lambdaChange);
 	for_each(result.begin(), result.end(), vyvid);
 	cout << endl;
-
+	/////////////////////////////////////////////////////////////////////////////////////////
 	auto lambdaChange_02 = [] (int val) -> function<int (int)> {
 		return [val] (int nnn) -> int { return val + nnn;};
 	};
 
+	auto newLambda = [] (int first) -> function<function<int (int)> (int)> {
+		return [first] (int second) -> function<int (int)> {
+			return [first, second] (int element) -> int { return first + second + element;};
+		};
+	};
+
 	result.erase(result.begin(), result.end());
+	cout << "result empty: " << result.empty() << "\n";
+	for_each(lst.begin(), lst.end(), vyvid);
+	cout << "\n";
 	transform(begin(lst), end(lst), back_inserter(result), lambdaChange_02(2));
+	for_each(result.begin(), result.end(), vyvid);
+	cout << endl;
+	result.erase(result.begin(), result.end());
+	cout << "result empty: " << result.empty() << "\n";
+	for_each(lst.begin(), lst.end(), vyvid);
+	cout << "\n";
+	transform(begin(lst), end(lst), back_inserter(result), newLambda(2000)(300));
 	for_each(result.begin(), result.end(), vyvid);
 	cout << endl;
 
@@ -65,12 +83,12 @@ void lambda_function_01() {
 	cout << endl;
 
 	cout << "\t";
-	for(const auto& element: result)
+	for(const auto& element: lst)
 		cout << element << "-";
 	cout << endl;
 
 	cout << "\t";
-	for(auto element: result)
+	for(auto element: lst)
 		cout << element << "-";
 	cout << endl;
 
@@ -85,5 +103,4 @@ void lambda_function_01() {
 	for_each(&mas[0][0], &mas[0][0] + mR * mC, vyvid);
 	cout << endl;
 	cout << "------------2D ARRAY END---------------------------\n";
-	*/
 }

@@ -78,7 +78,7 @@ public:
 void my_base_derived_01();
 
 void my_base_derived() {
-	my_base_derived_01();
+	//my_base_derived_01();
 }
 
 void my_base_derived_01() {
