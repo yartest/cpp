@@ -47,7 +47,7 @@ int main()
 		my_base_derived();
 		my_rvalue_lvalue();
 		lambda_functions();
-		//my_functor_adapters();
+		my_functor_adapters();
 		//my_threads_one();
 		//my_threads_two();
 		//set_functions();

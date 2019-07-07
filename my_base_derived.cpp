@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 
 using namespace std;
 
@@ -33,6 +34,8 @@ public:
 			return *this;
 		cout << "move operator= (Base&& in)" << "\n";
 	}
+
+	virtual void output() const { cout << "Base::output()" << "\n"; }
 
 	virtual ~Base()
 	{	cout << "Destructor ~Base()" << "\n"; }
@@ -70,6 +73,8 @@ public:
 		cout << "move operator= (Derived&& in)" << "\n";
 	}
 
+	virtual void output() const { cout << "Derived::output()" << "\n"; }
+
 	virtual ~Derived()
 	{	cout << "Destructor ~Derived()" << "\n"; }
 };
@@ -105,6 +110,13 @@ void my_base_derived_01() {
 		Derived t2;
 		t2 = move(t1);
 	}
-	cout << "\n";
+	cout << "\n a \n";
+	vector<shared_ptr<Derived>> vec;
+	vec.emplace_back(make_shared<Derived>());
+	vec.emplace_back(make_shared<Derived>());
+	for(auto &element : vec) {
+		element->output();
+	}
+	cout << "b \n";
 
 }
