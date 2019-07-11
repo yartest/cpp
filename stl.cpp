@@ -20,6 +20,7 @@ void my_functor_adapters();
 void my_threads_one();
 void my_threads_two();
 void set_functions();
+void my_strongly_typed_enums();
 
 // C11 https://habrahabr.ru/post/182920/
 // C11 lambda https://habrahabr.ru/post/66021/
@@ -48,6 +49,7 @@ int main()
 		my_rvalue_lvalue();
 		lambda_functions();
 		my_functor_adapters();
+		my_strongly_typed_enums();
 		//my_threads_one();
 		//my_threads_two();
 		//set_functions();
