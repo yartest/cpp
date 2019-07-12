@@ -113,5 +113,23 @@ void map_functions_03()
 	m.insert(pair<Node, int>(Node(7, 8), 9));
 
 	cout << "Node(4, 5) = " << m[Node(4, 5)] << "\n";
+
+	/*
+	auto:
+		auto var = some_expression;
+		1) T*, const T* => T*, const T*
+		2) T, const T, T&, const T& => T
+		auto& var = some_expression;
+		1) T, const T => compilation error
+		2) T&, const T& => T&, const T&
+		auto&& var = some_expression;
+		1) if some_expression is rvalue T&&, const T&&
+		2) if some_expression is lvalue T&, const T&
+	 */
+	Node node(12, 12);
+	auto func = [&node]() -> Node { return node;};
+	auto first = node;
+	// compilation Error:
+	//auto &second = func();
 }
 
