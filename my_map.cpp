@@ -10,17 +10,17 @@ using namespace std;
 
 void map_constructors();
 void map_lower_bound_upper_bound_equal_range();
-void map_functions_03();
+void map_auto_functions_03();
 
 // map::count(key) returns 0 or 1
 // map::insert do nothing if already exist
 
 
 // хеш таблиці - unordered_map https://codeforces.com/blog/entry/4710
-void map_functions() {
+void map_auto_functions() {
 	//map_constructors();
 	//map_lower_bound_upper_bound_equal_range();
-	map_functions_03();
+	//map_auto_functions_03();
 }
 
 void map_constructors() {
@@ -93,7 +93,7 @@ struct Node {
 	Node(int in_a, int in_b) :a(in_a), b(in_b) {}
 };
 
-void map_functions_03()
+void map_auto_functions_03()
 {
 	// Error:
 	//unordered_map<Test, int> mp01;

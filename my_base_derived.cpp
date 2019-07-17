@@ -81,9 +81,11 @@ public:
 
 
 void my_base_derived_01();
+void my_base_derived_02();
 
 void my_base_derived() {
 	//my_base_derived_01();
+	my_base_derived_02();
 }
 
 void my_base_derived_01() {
@@ -118,4 +120,34 @@ void my_base_derived_01() {
 		element->output();
 	}
 	cout << "b \n";
+}
+
+////////////////////////////////////////////////////////////
+
+class A
+{
+public:
+	virtual void output() { cout << "A::output()" << "\n"; }
+};
+
+class B : public A
+{
+public:
+	virtual void output() { cout << "B::output()" << "\n"; }
+};
+
+class C : protected A
+{
+public:
+	virtual void output() { cout << "C::output()" << "\n"; }
+};
+
+void my_base_derived_02()
+{
+	A *pA = new B();
+	//pA->output();
+	delete pA;
+	// Error:
+	// A *pA_02 = new C();
+	// delete pA_02;
 }

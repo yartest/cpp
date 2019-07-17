@@ -8,7 +8,7 @@ void input_output_data_c();
 void string_functions();
 void vector_functions();
 void list_functions();
-void map_functions();
+void map_auto_functions();
 void my_binary_unary_functions();
 void my_variadic_templates();
 void my_base_derived();
@@ -27,6 +27,8 @@ void my_initializer_list();
 // C11 lambda https://habrahabr.ru/post/66021/
 // algorithms http://www.cplusplus.com/reference/algorithm/
 // Eclipse enable C11 http://stackoverflow.com/questions/17457069/enabling-c11-in-eclipse-juno-kepler-luna-cdt
+// Eclipse enable pthread https://stackoverflow.com/questions/4334206/undefined-reference-to-pthread-create-in-c-program-on-eclipse-fedora/8155654
+// C11 thread future atomic tasks http://scrutator.me/post/2012/04/04/parallel-world-p1.aspx
 // only string has internal function 'find' 'at(i)' '[i]'
 // vector has 'at(i)' '[i]'
 // list has 'merge' 'remove' 'reverse' 'sort' 'splice'
@@ -42,7 +44,7 @@ int main()
 		string_functions();
 		vector_functions();
 		list_functions();
-		map_functions();
+		map_auto_functions();
 		my_binary_unary_functions();
 		my_variadic_templates();
 		pointers_functions();
@@ -52,9 +54,9 @@ int main()
 		my_functor_adapters();
 		my_strongly_typed_enums();
 		my_initializer_list();
-		//my_threads_one();
-		//my_threads_two();
-		//set_functions();
+		my_threads_one();
+		my_threads_two();
+		set_functions();
 		string str("some description.");
 		//throw str;
 	}

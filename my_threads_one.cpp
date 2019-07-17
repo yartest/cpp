@@ -22,41 +22,45 @@ mutex					g_mutex;
 condition_variable 		g_conditionVariable;
 int 					g_data = 0;
 
-//void my_thread_01();
-//void my_thread_02();
-//void my_thread_03();
-//void my_thread_04();
-//void my_thread_05();
-//void my_thread_06();
-//void my_thread_07();
-//void my_thread_08();
+void my_thread_01();
+void my_thread_02();
+void my_thread_03();
+void my_thread_04();
+void my_thread_05();
+void my_thread_06();
+void my_thread_07();
+void my_thread_08();
+
+// http://scrutator.me/post/2012/04/04/parallel-world-p1.aspx
 
 void my_threads_one() {
 	//my_thread_01();
 	//my_thread_02();
 	//my_thread_03();
+		// future:
 	//my_thread_04();
 	//my_thread_05();
 	//my_thread_06();
 	//my_thread_07();
 	//my_thread_08();
 }
-/*
+
 void my_thread_01() {
 	auto func = [](const string &first, const string &second) {
 		cout << "first:\"" << first << "\" second:\"" << second << "\"" << endl;
+		cout << "func thread id: 0x" << std::hex << std::this_thread::get_id() << endl;
 	};
 	thread thr(func, "Hello", "threads");
-	cout << endl << "thread id:" << std::hex << thr.get_id() << endl;
+	cout << endl << "thread id: 0x" << std::hex << thr.get_id() << endl;
 	thr.join();
-	cout << "current thread id:" << std::hex << std::this_thread::get_id() << endl;
+	cout << "current thread id: 0x" << std::hex << std::this_thread::get_id() << endl;
 
 	//this_thread::sleep_for(chrono::seconds(2));
 	//thr.join();
 	//thr.detach();
 }
-*/
-/*
+
+
 ///////////////////////////////////////////////////////////////////
 void my_construct_data() {
 	cout << "my_construct_data() start" << endl;
@@ -119,6 +123,7 @@ void my_proccess_data_02() {
 	cout << "my_proccess_data_02() start" << endl;
 	{
 		unique_lock<mutex> lock(g_mutex);
+		// https://habr.com/ru/post/182626/
 		g_conditionVariable.wait(lock, [](){ return g_data > 0;});
 		cout << "g_data=" << g_data << endl;
 	}
@@ -260,4 +265,3 @@ void my_thread_07() {
 void my_thread_08() {
 
 }
-*/
