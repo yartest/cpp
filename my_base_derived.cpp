@@ -37,11 +37,13 @@ public:
 
 	virtual void output() const { cout << "Base::output()" << "\n"; }
 
+	void test() const { cout << "Base::test()" << "\n"; }
+
 	virtual ~Base()
 	{	cout << "Destructor ~Base()" << "\n"; }
 };
 
-class Derived final : Base
+class Derived final : public Base
 {
 public:
 	Derived()
@@ -84,29 +86,43 @@ void my_base_derived_01();
 void my_base_derived_02();
 
 void my_base_derived() {
-	//my_base_derived_01();
+	my_base_derived_01();
 	my_base_derived_02();
 }
 
 void my_base_derived_01() {
+	cout << "\nA1\n";
 	{
 		Derived t1;
 		Derived t2(t1);
 		Derived t3(move(t1));
 	}
-	cout << "\n";
+	cout << "\nA2\n";
 	{
 		Derived t1;
 		Derived&& rT = move(t1);
-		Derived t2 (move(rT));
+		Derived t2 (rT);
 		Derived t3 (rT);
 	}
-	cout << "\n";
+	cout << "\nB1\n";
+	{
+		Derived t1;
+		t1.test();
+		Derived t_10;
+		Base &rBase = t1;
+		Derived &rDer = t_10;
+		cout << "----\n";
+		rDer = t1;
+		Base t2;
+		rBase = t2;
+		rBase = t_10;
+	}
+	cout << "\nA3\n";
 	{
 		Derived t1;
 		Derived t2 = move(t1);
 	}
-	cout << "\n";
+	cout << "\nA4\n";
 	{
 		Derived t1;
 		Derived t2;
