@@ -37,7 +37,10 @@ void my_threads_one() {
 	//my_thread_01();
 	//my_thread_02();
 	//my_thread_03();
-		// future:
+		// promise<T> p;
+		// future<T> f = p.get_future();
+		// shared_future<T> sf = f share();
+	    // https://www.youtube.com/watch?v=SZQ6-pf-5Us&list=PL5jc9xFGsL8E12so1wlMS0r0hTQoJL74M&index=7
 	//my_thread_04();
 	//my_thread_05();
 	//my_thread_06();
@@ -51,8 +54,12 @@ void my_thread_01() {
 		cout << "func thread id: 0x" << std::hex << std::this_thread::get_id() << endl;
 	};
 	thread thr(func, "Hello", "threads");
-	cout << endl << "thread id: 0x" << std::hex << thr.get_id() << endl;
-	thr.join();
+	//thr.get_id();
+	//thr.detach();
+	//this_thread::sleep_for(chrono::seconds(2));
+	if (thr.joinable())
+		thr.join();
+
 	cout << "current thread id: 0x" << std::hex << std::this_thread::get_id() << endl;
 
 	//this_thread::sleep_for(chrono::seconds(2));
@@ -77,7 +84,9 @@ bool isDataReady() {
 	cout << "\tisDataReady() start" << endl;
 	bool ready = false;
 	{
-		unique_lock<mutex> lock(g_mutex);
+		//unique_lock<mutex> lock(g_mutex);
+		lock_guard<mutex> lock(g_mutex);
+		//unique_lock<mutex> lock(g_mutex);
 		if (g_data != 0)
 			ready = true;
 	}
