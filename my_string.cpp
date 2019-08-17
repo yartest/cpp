@@ -36,7 +36,7 @@ void string_functions() {
 }
 
 void string_constructors() {
-	char *line = "short line for testing";
+	const char *line = "short line for testing";
 	string s1;
 	s1 = "Description";
 	cout << "s1: " << s1 << endl;
@@ -65,7 +65,7 @@ void string_append() {
 
 	string str = "Nobody is perfect";
 	string s   = ""; // empty string
-	char *ch   = "abcdef";
+	const char *ch   = "abcdef";
 	s.append(str, 0, 6);
 	cout << "s(1): " << s << endl;
 	string::iterator inpIt1 = str.begin() + 6;
@@ -83,7 +83,7 @@ void string_assign() {
 
 	string str = "Nobody is perfect";
 	string s   = "";
-	char *ch   = "Robert Frost";
+	const char *ch   = "Robert Frost";
 	s.assign(str);
 	cout << "s(11): " << s << endl;
 	s.assign(str,10,7); // perfect
