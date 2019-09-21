@@ -30,15 +30,32 @@ void weak_pointer_functions();
 
 //https://www.geeksforgeeks.org/auto_ptr-unique_ptr-shared_ptr-weak_ptr-2/
 void pointers_functions() {
-	//unique_pointer_functions();
-	//shared_pointer_functions();
-	//weak_pointer_functions();
+    //unique_pointer_functions();
+    //shared_pointer_functions();
+    //weak_pointer_functions();
 }
 
 void unique_pointer_functions() {
+    {
+        // smart pointer and array
+        int n = 10;
+        unique_ptr<int[]> array_ptr = make_unique<int[]>(n);
+        int *p = array_ptr.get();
+        for_each(p, p + n, [](int& element) -> void {
+            static int i = 0;
+            element = i++;
+        });
+        for_each(p, p + n, [](const int& element) -> void {
+            static int i = 0;
+            std::cout << "p[" << i << "] = " << element << "\n";
+            i++;
+        });
+    }
+
+
 	unique_ptr<Test> x_ptr(new Test(3));
-	//Error only from C++14 - make_unique<Test>(3);
-	//unique_ptr<Test> x_ptr = make_unique<Test>(3);
+    //Error only from C++14 - make_unique<Test>(33);
+    unique_ptr<Test> x_ptr_2 = make_unique<Test>(33);
 	x_ptr = unique_ptr<Test>(new Test(4));
 	unique_ptr<Test> y_ptr;
 	// compilation error
@@ -80,9 +97,11 @@ void shared_pointer_functions() {
 	cout << "ptr2: " << *ptr2 << endl;
 	cout << "count: " << ptr2.use_count() << endl;
 	ptr.reset();
+    cout << "ptr count after reset: " << ptr.use_count() << endl;
+    cout << "ptr pointer address after reset 0x" << ptr.get() << endl;
 	cout << "count: " << ptr2.use_count() << endl;
 	ptr = ptr2;
-	cout << "count: " << ptr2.use_count() << endl;
+    cout << "count: " << ptr.use_count() << endl;
 }
 
 void weak_pointer_functions() {

@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include <initializer_list>
 
 using namespace std;
 
@@ -22,6 +21,7 @@ public:
 		if (this == &in)
 			return *this;
 		cout << "operator= (cosnt Base& in)" << "\n";
+        return *this;
 	}
 
 	Base(Base&& in)
@@ -34,6 +34,7 @@ public:
 		if (this == &in)
 			return *this;
 		cout << "move operator= (Base&& in)" << "\n";
+        return *this;
 	}
 
 	virtual void output() const { cout << "Base::output()" << "\n"; }
@@ -61,6 +62,7 @@ public:
 			return *this;
 		Base::operator=(in);
 		cout << "operator= (const Derived& in)" << "\n";
+        return *this;
 	}
 
 	Derived(Derived&& in) : Base(move(in))
@@ -74,6 +76,7 @@ public:
 			return *this;
 		Base::operator=(move(in));
 		cout << "move operator= (Derived&& in)" << "\n";
+        return *this;
 	}
 
 	virtual void output() const override final { cout << "Derived::output()" << "\n"; }
@@ -85,12 +88,10 @@ public:
 
 void my_base_derived_01();
 void my_base_derived_02();
-void my_base_derived_03();
 
 void my_base_derived() {
-	//my_base_derived_01();
-	//my_base_derived_02();
-	my_base_derived_03();
+    //my_base_derived_01();
+    //my_base_derived_02();
 }
 
 void my_base_derived_01() {
@@ -171,30 +172,4 @@ void my_base_derived_02()
 	// delete pA_02;
 }
 
-////////////////////////////////////////////////////////////
 
-struct InitList
-{
-	double t;
-	InitList (int k, int s)
-	{ cout << "InitList(int k, int s) k:" << k << ", s:" << s << "\n"; }
-
-	InitList (initializer_list<int> t)
-	{
-		cout << "InitList (initializer_list<int> &t) \n";
-		for (const auto &element : t)
-			cout << "InitList element: " << element << "\n";
-	}
-};
-
-struct InitList2
-{
-	int k;
-};
-
-void my_base_derived_03()
-{
-	InitList i2{6, 9};
-	InitList i3 {10};
-	InitList2 i {80};
-}

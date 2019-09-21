@@ -20,7 +20,7 @@ void map_auto_functions_03();
 void map_auto_functions() {
 	//map_constructors();
 	//map_lower_bound_upper_bound_equal_range();
-	//map_auto_functions_03();
+    map_auto_functions_03();
 }
 
 void map_constructors() {
