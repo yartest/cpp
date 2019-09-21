@@ -171,5 +171,3 @@ void my_base_derived_02()
 	// A *pA_02 = new C();
 	// delete pA_02;
 }
-
-
