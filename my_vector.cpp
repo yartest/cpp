@@ -27,6 +27,15 @@ void vector_functions() {
     //vector_remove_erase();
 }
 
+struct TestInt {
+    int data;
+};
+
+std::ostream& operator<<(std::ostream& out, const TestInt& v) {
+  out << v.data << ":";
+  return out;
+}
+
 void vector_constructors() {
     string str[]= {"Alex", "John", "Robert"};
     vector<int> v1;
@@ -44,11 +53,23 @@ void vector_constructors() {
         cout << v5.at(i) << " ";
     }
     cout << endl;
+
+    vector<TestInt> vecTestInt(10, TestInt{15});
+    cout << "size(vecTestInt) = " << vecTestInt.size() << endl;
+    vector<TestInt> test(move(vecTestInt));
+    cout << "size(vecTestInt) = " << vecTestInt.size() << endl;
+    cout << "size(test) = " << test.size() << endl;
+
+    for (const auto &element: test) {
+        cout << element;
+    }
+
+    cout << endl << endl << endl;
 }
 
 void vector_assign_at_back_clear_empty() {
     int ary[]= {1, 2, 3, 4, 5};
-    vector<int> v(10);
+    vector<int> v(11);
     cout << "v.capacity() = " << v.capacity() << endl;
     cout << "v.size() = " << v.size() << endl;
 
@@ -84,7 +105,16 @@ void vector_erase_push_back_insert() {
     v.erase(v.begin(), v.begin() + 3);
     copy(v.begin(), v.end(), ostream_iterator<int>(cout," "));
     cout << endl;
+    int* p1 = &v[0];
+    int* p2 = &v[1];
+    cout << "address p1 = " << static_cast<void*>(p1) << " address p2 = " << static_cast<void*>(p2) << endl;
+    auto it = v.begin();
+    cout << "*it = "  << *it << endl;
+
     v.insert(v.begin(), 1);
+    cout << "address p1 = " << static_cast<void*>(p1) << " value p1 = " << *p1 << endl;
+    cout << "address p2 = " << static_cast<void*>(p2) << " value p2 = " << *p2 << endl;
+    cout << "*it = "  << *it << endl;
     copy(v.begin(), v.end(), ostream_iterator<int>(cout," "));
     cout << endl;
     v.insert(v.begin() + 1, ary + 1, ary + 3);
@@ -109,12 +139,22 @@ void vector_remove_erase() {
     copy(vec.begin(), vec.end(), ostream_iterator<int>(cout,","));
     cout << endl;
 
+    auto even_number = [](const int val) -> bool { return val % 2 == 0;};
     //for list container
     //list.remove(value);
     remove_element = 3;
     list<int> lst(arr, arr + 15);
-    lst.remove(remove_element);
+    lst.remove_if(even_number);
     cout << "list:" << endl;
     copy(lst.begin(), lst.end(), ostream_iterator<int>(cout,","));
+    cout << endl << endl;
+
+    vector<int> data(arr, arr + 15);
+    copy(data.begin(), data.end(), ostream_iterator<int>(cout,","));
     cout << endl;
+    auto it = remove_if(data.begin(), data.end(), even_number);
+    data.erase(it, data.end());
+    copy(data.begin(), data.end(), ostream_iterator<int>(cout,","));
+    cout << endl;
+
 }

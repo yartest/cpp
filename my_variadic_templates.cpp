@@ -5,6 +5,15 @@
 #include <vector>
 #include <list>
 
+void my_variadic_templates_01();
+void my_variadic_templates_02();
+//https://eli.thegreenplace.net/2014/variadic-templates-in-c/
+//https://en.cppreference.com/w/cpp/language/parameter_pack
+void my_variadic_templates() {
+    //my_variadic_templates_01();
+    //my_variadic_templates_02();
+}
+
 template<typename T>
 T adder(T v)
 {    std::cout << __PRETTY_FUNCTION__ << "\n";
@@ -70,15 +79,6 @@ typename std::enable_if<
 get(VariadicTemplates<T, Ts...>& t) {
     VariadicTemplates<Ts...>& base = t;
   return get<k - 1>(base);
-}
-
-void my_variadic_templates_01();
-void my_variadic_templates_02();
-//https://eli.thegreenplace.net/2014/variadic-templates-in-c/
-//https://en.cppreference.com/w/cpp/language/parameter_pack
-void my_variadic_templates() {
-    //my_variadic_templates_01();
-    //my_variadic_templates_02();
 }
 
 void my_variadic_templates_01() {
