@@ -14,11 +14,11 @@ void my_initializer_list() {
 // https://habr.com/ru/post/330402/
 void initializer_list_01() {
 
-	// initializer_list<int> type of y
+    // initializer_list<int> type of y
     auto y = {1, 2, 3, 4, 5, 6, 7};
     std::cout << "sizeof(y) = " << sizeof(y) << "\n";
 
-	const int k = 10;
+    const int k = 10;
     std::cout << "k=" << k << "\n\n\n";
     //static_assert(k <= 0, "k is greater than 0, error");
     static_assert(k >= 0, "k is negative, error");

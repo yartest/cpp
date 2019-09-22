@@ -37,38 +37,38 @@ void my_initializer_list();
 //int main(int argc, char *argv[])
 int main()
 {
-	try {
-		//test_functions();
-		input_output_data();
-		input_output_data_c();
-		string_functions();
-		vector_functions();
-		list_functions();
-		map_auto_functions();
-		my_binary_unary_functions();
-		my_variadic_templates();
-		pointers_functions();
-		my_base_derived();
-		my_rvalue_lvalue();
-		lambda_functions();
-		my_functor_adapters();
-		my_strongly_typed_enums();
-		my_initializer_list();
-		my_threads_one();
-		my_threads_two();
-		set_functions();
-		string str("some description.");
-		//throw str;
-	}
-	catch (string &info) {
-		cout << "main(): an exception: " << info << endl;
-	}
-	catch (std::exception &e) {
-		cerr << " main(): catch (std::exception &e): " << e.what() << endl;
-	}
-	catch (...) {
-		cerr << "main(): catch (...):" << endl;
-	}
-	cout << "\n\tmain(): the end of the main().\n";
-	return 0;
+    try {
+        //test_functions();
+        input_output_data();
+        input_output_data_c();
+        string_functions();
+        vector_functions();
+        list_functions();
+        map_auto_functions();
+        my_binary_unary_functions();
+        my_variadic_templates();
+        pointers_functions();
+        my_base_derived();
+        my_rvalue_lvalue();
+        lambda_functions();
+        my_functor_adapters();
+        my_strongly_typed_enums();
+        my_initializer_list();
+        my_threads_one();
+        my_threads_two();
+        set_functions();
+        string str("some description.");
+        //throw str;
+    }
+    catch (string &info) {
+        cout << "main(): an exception: " << info << endl;
+    }
+    catch (std::exception &e) {
+        cerr << " main(): catch (std::exception &e): " << e.what() << endl;
+    }
+    catch (...) {
+        cerr << "main(): catch (...):" << endl;
+    }
+    cout << "\n\tmain(): the end of the main().\n";
+    return 0;
 }
