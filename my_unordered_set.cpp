@@ -36,7 +36,7 @@ void my_common_set_functions() {
     for (int i = 0; i < data_set.bucket_count(); i++) {
         cout << "data_set(" << i << "): " << data_set.bucket_size(i) << endl;
     }
-    cout << "\n" << "bucket(2):\n";
+    cout << "\n" << "bucket(1):\n";
     auto it_bucket_1_begin = data_set.begin(1);
     auto it_bucket_1_end = data_set.end(1);
     cout << "element:" << *it_bucket_1_begin << "\n";
@@ -45,5 +45,9 @@ void my_common_set_functions() {
     it_bucket_1_begin++;
     if (it_bucket_1_begin == it_bucket_1_end)
         cout << "the end in this bucket\n";
+
+    cout << "\n" << "bucket(2):\n";
+    it_bucket_1_begin = data_set.begin(2);
+    cout << "element:" << *it_bucket_1_begin << "\n";
 
 }
