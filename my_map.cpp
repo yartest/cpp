@@ -30,6 +30,7 @@ void map_constructors() {
     m1.insert(make_pair(2,'B'));
     m1.insert(M::value_type(3,'C'));
     m1.insert(pair<int, char>(1,'A'));
+    m1.insert({0,'Z'});
     M::iterator It = begin(m1);
 
     cout << "m1:" << endl;
@@ -62,7 +63,7 @@ void map_lower_bound_upper_bound_equal_range() {
     m1[11] = 'X'; m1[12] = 'Y'; m1[13] = 'Z';
     cout << "m1:" << endl;
     for (const auto &element: m1) {
-        cout << element.first << "-" << element.second << ":::";
+        cout << element.first << "-" << element.second << "   ";
     }
     cout << endl;
     cout << "2:" << endl;
@@ -88,9 +89,9 @@ void map_lower_bound_upper_bound_equal_range() {
 class Test {};
 
 struct Node {
-    int a;
-    int b;
-    Node(int in_a, int in_b) :a(in_a), b(in_b) {}
+    uint8_t a;
+    uint8_t b;
+    Node(uint8_t in_a, uint8_t in_b) :a(in_a), b(in_b) {}
 };
 
 void map_auto_functions_03()
@@ -105,9 +106,10 @@ void map_auto_functions_03()
 
     using h = std::hash<int>;
     auto hash = [](const Node& n){return h()(n.a) * h()(n.b);};
+    auto my_hash = [](const Node& n) { return n.a * 0xff + n.b;};
     auto equal = [](const Node& l, const Node& r){return l.a == r.a && l.b == r.b;};
     // 8 - Minimal initial number of buckets
-    std::unordered_map<Node, int, decltype(hash), decltype(equal)> m(8, hash, equal);
+    std::unordered_map<Node, int, decltype(my_hash), decltype(equal)> m(8, my_hash, equal);
     m.insert(make_pair(Node(1, 2), 3));
     m.insert({Node(4, 5), 6});
     m.insert(pair<Node, int>(Node(7, 8), 9));
