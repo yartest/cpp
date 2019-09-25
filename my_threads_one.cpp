@@ -48,8 +48,9 @@ void my_threads_one() {
     //my_thread_08();
 }
 
+// read this http://scrutator.me/post/2012/04/04/parallel-world-p1.aspx
 void my_thread_01() {
-    auto func = [](const string &first, const string &second) {
+    auto func = [](const string &first, const string &second) -> void {
         cout << "first:\"" << first << "\" second:\"" << second << "\"" << endl;
         cout << "func thread id: 0x" << std::hex << std::this_thread::get_id() << endl;
     };
@@ -65,8 +66,13 @@ void my_thread_01() {
     //this_thread::sleep_for(chrono::seconds(2));
     //thr.join();
     //thr.detach();
+    {
+        cout << "thr_2: \n";
+        thread thr_2(func, "Hello", "threads");
+        thr_2.join();
+        //thr_2.detach();
+    }
 }
-
 
 ///////////////////////////////////////////////////////////////////
 void my_construct_data() {

@@ -8,7 +8,7 @@ void initializer_list_02();
 
 void my_initializer_list() {
     //initializer_list_01();
-    //initializer_list_02();
+    initializer_list_02();
 }
 
 // https://habr.com/ru/post/330402/
@@ -53,6 +53,12 @@ struct InitList__3
     char c;
 };
 
+struct InitList__4
+{
+    InitList__4 (int k, char s)
+    { std::cout << "InitList__4(int k, char s) k:" << k << ", s:" << s << "\n"; }
+};
+
 void initializer_list_02()
 {
     InitList__1 x1{1, 2};
@@ -81,6 +87,11 @@ void initializer_list_02()
 
     std::vector <InitList__3> vec__3;
     //vec__3.emplace_back(90, 'c');  // error during compilation
+
+    InitList__4 e1{91, 'a'};
+    InitList__4 e2(92, 'b');
+    std::vector <InitList__4> vec__4;
+    vec__4.emplace_back(93, 'c');
 }
 
 ////////////////////////////////////////////////////////////
