@@ -8,7 +8,7 @@ void initializer_list_02();
 
 void my_initializer_list() {
     //initializer_list_01();
-    initializer_list_02();
+    //initializer_list_02();
 }
 
 // https://habr.com/ru/post/330402/
